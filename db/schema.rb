@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503013202) do
+ActiveRecord::Schema.define(version: 20150503021256) do
 
   create_table "denpas", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "twitter_accounts", force: :cascade do |t|
+    t.integer  "denpa_id",    limit: 4,   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "screen_name", limit: 255, null: false
+    t.integer  "uid",         limit: 4,   null: false
+  end
+
+  add_index "twitter_accounts", ["denpa_id"], name: "index_twitter_accounts_on_denpa_id", using: :btree
 
 end
