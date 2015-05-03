@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503021256) do
+ActiveRecord::Schema.define(version: 20150503023508) do
 
   create_table "denpas", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string   "url",                limit: 255, null: false
+    t.integer  "fav",                limit: 4,   null: false
+    t.integer  "rt",                 limit: 4,   null: false
+    t.integer  "status_id",          limit: 4,   null: false
+    t.integer  "twitter_account_id", limit: 4,   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "tweets", ["twitter_account_id"], name: "index_tweets_on_twitter_account_id", using: :btree
 
   create_table "twitter_accounts", force: :cascade do |t|
     t.integer  "denpa_id",    limit: 4,   null: false
@@ -29,4 +41,5 @@ ActiveRecord::Schema.define(version: 20150503021256) do
 
   add_index "twitter_accounts", ["denpa_id"], name: "index_twitter_accounts_on_denpa_id", using: :btree
 
+  add_foreign_key "tweets", "twitter_accounts"
 end
