@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  fav: 1
+  rt: 1
+  status_id: 1
+  twitter_account_id: 
+
+two:
+  url: MyString
+  fav: 1
+  rt: 1
+  status_id: 1
+  twitter_account_id: 
