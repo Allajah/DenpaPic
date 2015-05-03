@@ -4,4 +4,5 @@ class Tweet < ActiveRecord::Base
   validates :rt, presence: true
   validates :status_id, presence: true
   belongs_to :twitter_account
+  has_many :pictures
 end
